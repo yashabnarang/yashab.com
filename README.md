@@ -2,7 +2,7 @@
   yashab.com
 </h1>
 <p align="center">
-  <a href="https://yashab.com" target="_blank">yashab.com</a> built with simple HTML and hosted with <a href="https://https://www.000webhost.com//" target="_blank">000WebHost</a>
+  <a href="http://yashab.com/" target="_blank">yashab.com</a> built with simple HTML and hosted with <a href="https://https://www.000webhost.com//" target="_blank">000WebHost</a>
 </p>
 <p align="center">
   <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
