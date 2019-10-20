@@ -1,5 +1,5 @@
 <h1 align="center">
-  yashab.com - v1
+  yashab.com
 </h1>
 <p align="center">
   <a href="https://yashab.com" target="_blank">yashab.com</a> built with simple HTML and hosted with <a href="https://https://www.000webhost.com//" target="_blank">000WebHost</a>
