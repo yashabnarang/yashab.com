@@ -1,4 +1,8 @@
-export type AboutPart = { text: string; bold?: boolean };
+export type AboutPart = {
+  text: string;
+  bold?: boolean;
+  easterEgg?: "dog";
+};
 
 export type AboutParagraph = { parts: AboutPart[] };
 
@@ -56,8 +60,10 @@ export const profile = {
     },
     {
       parts: [
+        { text: "Outside of work, I go to the gym, take walks with " },
+        { text: "my dog", easterEgg: "dog" },
         {
-          text: "Outside of work, I go to the gym, take walks with my dog, collect and play Pokémon cards, and watch a lot of anime and movies.",
+          text: ", collect and play Pokémon cards, and watch a lot of anime and movies.",
         },
       ],
     },

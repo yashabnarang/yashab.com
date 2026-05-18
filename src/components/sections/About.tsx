@@ -1,3 +1,4 @@
+import { DogEasterEgg } from "@/components/easter-egg/DogEasterEgg";
 import { profile } from "@/content/profile";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -8,18 +9,22 @@ export function About() {
       <div className="space-y-4 leading-relaxed text-green-300/85">
         {profile.about.map((paragraph, index) => (
           <p key={index}>
-            {paragraph.parts.map((part, partIndex) =>
-              part.bold ? (
-                <strong
-                  key={partIndex}
-                  className="font-medium text-green-100"
-                >
-                  {part.text}
-                </strong>
-              ) : (
-                <span key={partIndex}>{part.text}</span>
-              ),
-            )}
+            {paragraph.parts.map((part, partIndex) => {
+              if ("easterEgg" in part && part.easterEgg === "dog") {
+                return <DogEasterEgg key={partIndex} />;
+              }
+              if ("bold" in part && part.bold) {
+                return (
+                  <strong
+                    key={partIndex}
+                    className="font-medium text-green-100"
+                  >
+                    {part.text}
+                  </strong>
+                );
+              }
+              return <span key={partIndex}>{part.text}</span>;
+            })}
           </p>
         ))}
       </div>
