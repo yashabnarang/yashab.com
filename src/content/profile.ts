@@ -4,7 +4,7 @@ export type AboutParagraph = { parts: AboutPart[] };
 
 export const profile = {
   name: "Yashab Narang",
-  title: "Systems Integrations Engineer II",
+  title: "Full Stack Software Engineer",
   tagline:
     "I build backend systems and data pipelines teams rely on in production.",
   email: "ynara50@gmail.com",
