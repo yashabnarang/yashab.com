@@ -50,10 +50,13 @@ export function Projects() {
       <p className="mt-12">
         <Link
           href="/archive"
-          className="inline-flex items-center font-medium text-green-400 transition-colors hover:text-green-300"
+          className="group/archive-link inline-flex items-center font-medium text-green-400 transition-colors hover:text-green-300"
         >
-          View full project archive
-          <span className="ml-2" aria-hidden>
+          <span>View full project archive</span>
+          <span
+            className="ml-1 inline-block translate-x-0 transition-transform duration-200 group-hover/archive-link:translate-x-1 motion-reduce:transition-none"
+            aria-hidden
+          >
             →
           </span>
         </Link>
