@@ -6,14 +6,14 @@ export const profile = {
   name: "Yashab Narang",
   title: "Systems Integrations Engineer II",
   tagline:
-    "I build backend systems and data pipelines that teams can actually depend on.",
+    "I build backend systems and data pipelines teams rely on in production.",
   email: "ynara50@gmail.com",
   location: "Ventura, CA",
   about: [
     {
       parts: [
         {
-          text: "Hi, I'm Yashab. I build backend systems and data pipelines that teams can actually depend on.",
+          text: "Hi, I'm Yashab. I build backend systems and data pipelines teams rely on in production.",
         },
       ],
     },
@@ -26,7 +26,7 @@ export const profile = {
         },
         { text: "C#", bold: true },
         {
-          text: ", focused on data transformation and integrity at scale—where correctness isn't optional.",
+          text: ", focused on data transformation and keeping migrations accurate and complete at scale.",
         },
       ],
     },
