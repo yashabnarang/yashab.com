@@ -73,7 +73,7 @@ export const profile = {
         { text: "Outside of work, I go to the gym, take walks with " },
         { text: "my dog", easterEgg: "dog" },
         {
-          text: ", collect and play Pok\u00e9mon cards, and watch a lot of anime and movies.",
+          text: ", stroll my newborn around so he can watch the sky and catch a breeze, collect trading cards, and try to keep up with the newest anime and movies.",
         },
       ],
     },
