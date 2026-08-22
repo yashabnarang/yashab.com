@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Caprasimo, Figtree } from "next/font/google";
 import "./globals.css";
 
@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   description:
     "Yashab Narang is a full stack software engineer who builds reliable, scalable software for data migration and full-stack applications.",
   metadataBase: new URL("https://yashab.com"),
-  themeColor: "#f5ead8",
   openGraph: {
     title: "Yashab Narang",
     description: "Full Stack Software Engineer building reliable, scalable software systems.",
@@ -27,6 +26,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#f5ead8",
 };
 
 export default function RootLayout({

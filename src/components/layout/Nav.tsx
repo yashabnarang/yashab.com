@@ -15,7 +15,7 @@ export function Nav() {
               {item.label}
             </a>
           ))}
-          <CopyEmailButton className="ml-1.5 md:ml-3" />
+          <CopyEmailButton className="ml-1.5 hidden md:ml-3 md:inline-flex" />
         </span>
       </div>
     </nav>

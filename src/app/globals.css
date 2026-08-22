@@ -76,51 +76,56 @@ a:not(.btn):hover { color: var(--color-accent-900); }
   outline-offset: 2px;
 }
 
-/* Buttons (from the design system's component layer) */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  font-family: var(--font-heading), system-ui, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.2;
-  color: var(--color-text);
-  background: transparent;
-  border: 1px solid transparent;
-  padding: 9px 23px;
-  border-radius: var(--radius-md);
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
-}
-.btn-primary { background: var(--color-accent); color: var(--color-bg); }
-.btn-primary:hover { background: var(--color-accent-600); color: var(--color-bg); }
-.btn-primary:active { background: var(--color-accent-700); color: var(--color-bg); }
-.btn-secondary { border-color: var(--color-divider); color: var(--color-accent-800); }
-.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); color: var(--color-accent-800); }
-.btn-ghost { color: var(--color-accent); padding-inline: 10px; }
-.btn-ghost:hover, .btn-ghost:focus-visible { background: var(--color-accent-100); color: var(--color-accent-900); }
+/* Buttons, tags, surfaces (design system component layer).
+   Wrapped in @layer components so Tailwind places this before the utilities
+   layer in the compiled CSS — otherwise plain classes here (like .btn's
+   `display: inline-flex`) win the cascade over utilities such as `hidden`
+   or `sm:inline-flex` on the same element, since both are single-class
+   selectors and source order (not specificity) breaks the tie. */
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: var(--font-heading), system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-text);
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 9px 23px;
+    border-radius: var(--radius-md);
+    transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+  }
+  .btn-primary { background: var(--color-accent); color: var(--color-bg); }
+  .btn-primary:hover { background: var(--color-accent-600); color: var(--color-bg); }
+  .btn-primary:active { background: var(--color-accent-700); color: var(--color-bg); }
+  .btn-secondary { border-color: var(--color-divider); color: var(--color-accent-800); }
+  .btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); color: var(--color-accent-800); }
+  .btn-ghost { color: var(--color-accent); padding-inline: 10px; }
+  .btn-ghost:hover, .btn-ghost:focus-visible { background: var(--color-accent-100); color: var(--color-accent-900); }
 
-/* Tags */
-.tag {
-  display: inline-block;
-  border-radius: 999px;
-  padding: 4px 12px;
-  font-size: 12px;
-  line-height: 1.4;
-}
-.tag-accent { background: var(--color-accent-200); color: var(--color-accent-900); }
-.tag-outline { border: 1px solid var(--color-divider); color: var(--color-neutral-700); }
+  .tag {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .tag-accent { background: var(--color-accent-200); color: var(--color-accent-900); }
+  .tag-outline { border: 1px solid var(--color-divider); color: var(--color-neutral-700); }
 
-/* Surfaces */
-.card {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: 28px;
+  .card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .washed { filter: saturate(0.6) contrast(0.85) brightness(1.1) opacity(0.94); }
 }
-.washed { filter: saturate(0.6) contrast(0.85) brightness(1.1) opacity(0.94); }
 
 /* Copy-email button: label morphs into the address, sparkles on click */
 .om-copy { display: inline-grid; align-items: center; justify-items: center; }

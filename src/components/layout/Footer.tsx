@@ -10,7 +10,7 @@ export function Footer() {
         <span className="flex flex-wrap gap-3.5 text-sm md:gap-5">
           <a href={profile.social.github} target="_blank" rel="noreferrer noopener">GitHub</a>
           <a href={profile.social.linkedin} target="_blank" rel="noreferrer noopener">LinkedIn</a>
-          <a href={profile.social.email}>{profile.email}</a>
+          <a href={profile.social.email}>Email</a>
           <a href={profile.resume} target="_blank" rel="noreferrer noopener">Resume</a>
         </span>
       </div>
