@@ -1,7 +1,13 @@
-export function Tag({ children }: { children: React.ReactNode }) {
+type Props = {
+  children: React.ReactNode;
+  /** Filled terracotta for languages, outlined for frameworks and tooling. */
+  variant?: "accent" | "outline";
+};
+
+export function Tag({ children, variant = "outline" }: Props) {
   return (
-    <li className="mr-2 mt-2">
-      <span className="rounded-full bg-green-500/10 px-3 py-1 font-mono text-xs text-green-400">
+    <li>
+      <span className={variant === "accent" ? "tag tag-accent" : "tag tag-outline"}>
         {children}
       </span>
     </li>

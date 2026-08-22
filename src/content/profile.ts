@@ -10,9 +10,19 @@ export const profile = {
   name: "Yashab Narang",
   title: "Full Stack Software Engineer",
   tagline:
-    "I build backend systems and data pipelines teams rely on in production.",
+    "Full Stack Software Engineer. I like building things that make an impact. Currently I'm migrating police evidence data securely and efficiently.",
   email: "ynara50@gmail.com",
-  location: "Ventura, CA",
+  availability: "Remote \u00b7 open to relocating to New York City",
+  resume: "/yashab-narang-resume.pdf",
+  photo: "/images/yashab.jpg",
+  skills: [
+    { label: "C#", core: true },
+    { label: "Python", core: true },
+    { label: ".NET", core: false },
+    { label: "Angular", core: false },
+    { label: "SQL Server", core: false },
+    { label: "AWS S3", core: false },
+  ],
   about: [
     {
       parts: [
@@ -63,7 +73,7 @@ export const profile = {
         { text: "Outside of work, I go to the gym, take walks with " },
         { text: "my dog", easterEgg: "dog" },
         {
-          text: ", collect and play Pokémon cards, and watch a lot of anime and movies.",
+          text: ", collect and play Pok\u00e9mon cards, and watch a lot of anime and movies.",
         },
       ],
     },

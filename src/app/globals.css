@@ -2,12 +2,167 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Organic design tokens */
+:root {
+  --color-bg: #f5ead8;
+  --color-surface: #ebddc5;
+  --color-text: #201e1d;
+  --color-accent: #c67139;
+  --color-accent-2: #7a8a5e;
+  --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
+
+  --color-neutral-100: #f9f4ed;
+  --color-neutral-200: #eee7db;
+  --color-neutral-300: #dcd3c4;
+  --color-neutral-400: #c0b6a5;
+  --color-neutral-500: #a19786;
+  --color-neutral-600: #82796a;
+  --color-neutral-700: #645c50;
+  --color-neutral-800: #474238;
+  --color-neutral-900: #2e2b25;
+
+  --color-accent-100: #fff2eb;
+  --color-accent-200: #ffe1d0;
+  --color-accent-300: #ffc6a5;
+  --color-accent-400: #f6a06b;
+  --color-accent-500: #d67f48;
+  --color-accent-600: #b2622d;
+  --color-accent-700: #8c491a;
+  --color-accent-800: #643312;
+  --color-accent-900: #402310;
+
+  --color-accent-2-100: #f0fae1;
+  --color-accent-2-300: #ccdbb2;
+  --color-accent-2-500: #8fa073;
+  --color-accent-2-700: #56633f;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2e2b25 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2e2b25 22%, transparent);
+}
+
+/* IMPORTANT: overflow-x lives on html only. Putting it on body makes body the
+   scroll container, which kills smooth anchor scrolling and sticky nav math. */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+a:not(.btn) { color: var(--color-accent-700); }
+a:not(.btn):hover { color: var(--color-accent-900); }
+
+::selection {
+  background: var(--color-accent-200);
+  color: var(--color-accent-900);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Buttons (from the design system's component layer) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 9px 23px;
+  border-radius: var(--radius-md);
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); color: var(--color-bg); }
+.btn-primary:active { background: var(--color-accent-700); color: var(--color-bg); }
+.btn-secondary { border-color: var(--color-divider); color: var(--color-accent-800); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); color: var(--color-accent-800); }
+.btn-ghost { color: var(--color-accent); padding-inline: 10px; }
+.btn-ghost:hover, .btn-ghost:focus-visible { background: var(--color-accent-100); color: var(--color-accent-900); }
+
+/* Tags */
+.tag {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.tag-accent { background: var(--color-accent-200); color: var(--color-accent-900); }
+.tag-outline { border: 1px solid var(--color-divider); color: var(--color-neutral-700); }
+
+/* Surfaces */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+.washed { filter: saturate(0.6) contrast(0.85) brightness(1.1) opacity(0.94); }
+
+/* Copy-email button: label morphs into the address, sparkles on click */
+.om-copy { display: inline-grid; align-items: center; justify-items: center; }
+.om-copy > span {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  transition: opacity 220ms ease, transform 260ms cubic-bezier(.2,.8,.2,1), filter 220ms ease;
+}
+.om-copy .lsize { visibility: hidden; pointer-events: none; }
+.om-copy .l2 { opacity: 0; transform: translateY(7px) scale(.94); filter: blur(2px); }
+.om-copy:hover .l1, .om-copy:focus-visible .l1 { opacity: 0; transform: translateY(-7px) scale(.94); filter: blur(2px); }
+.om-copy:hover .l2, .om-copy:focus-visible .l2 { opacity: 1; transform: none; filter: none; }
+
+@keyframes om-sparkle {
+  0% { transform: translate(0,0) scale(0); opacity: 0; }
+  25% { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1); opacity: 0; }
+}
+@keyframes om-pop {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.06); }
+}
+.om-spark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  pointer-events: none;
+  color: var(--color-accent-600);
+  animation: om-sparkle 720ms ease-out forwards;
+}
+.om-popped { animation: om-pop 420ms ease-out; }
+
+/* Below md the sizer is dropped so the nav does not overflow narrow screens */
+@media (max-width: 767px) {
+  .om-copy .lsize { display: none; }
+  .om-copy .l2 {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

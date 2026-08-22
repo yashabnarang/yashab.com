@@ -1,8 +1,7 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import type { Metadata } from "next";
 import { projects } from "@/content/projects";
-import { ExternalLink } from "@/components/ui/ExternalLink";
 import { Tag } from "@/components/ui/Tag";
 
 export const metadata: Metadata = {
@@ -12,32 +11,34 @@ export const metadata: Metadata = {
 
 export default function ArchivePage() {
   return (
-    <div className="mx-auto min-h-screen max-w-3xl px-6 py-16 md:px-12">
-      <Link
-        href="/"
-        className="mb-8 inline-flex items-center text-sm font-medium text-green-400 transition-colors hover:text-green-300"
-      >
-        ← Back home
+    <div className="mx-auto min-h-screen max-w-[820px] px-5 py-14 md:px-12 md:py-20">
+      <Link href="/" className="btn btn-ghost pl-0">
+        &larr; Back home
       </Link>
-      <h1 className="text-3xl font-bold tracking-tight text-green-50">Project Archive</h1>
-      <p className="mt-4 text-green-300/85">All projects, including older work.</p>
 
-      <ul className="mt-12 space-y-16">
+      <h1 className="mt-6 font-heading text-[38px] font-normal md:text-[52px]">Project Archive</h1>
+      <p className="mt-3 text-[15px] text-sand-700">All projects, including older work.</p>
+
+      <ul className="mt-10 flex list-none flex-col">
         {projects.map((project) => (
-          <li key={project.id} className="border-b border-forest-800 pb-16 last:border-0">
-            <p className="font-mono text-xs text-green-400">{project.date}</p>
-            <h2 className="mt-2 text-xl font-medium text-green-50">
-              <ExternalLink href={project.href}>{project.title}</ExternalLink>
+          <li key={project.id} className="border-t border-sand-200 py-7 last:border-b">
+            <p className="text-sm font-semibold text-accent-700">{project.date}</p>
+            <h2 className="mt-1.5 font-heading text-[26px] font-normal">
+              <a href={project.href} target="_blank" rel="noreferrer noopener">
+                {project.title}
+              </a>
             </h2>
-            <p className="mt-3 text-green-300/85">{project.description}</p>
-            <ul className="mt-4 flex flex-wrap">
-              {project.tech.map((t) => (
-                <Tag key={t}>{t}</Tag>
+            <p className="mt-2.5 text-[15px] leading-[1.7] text-sand-700">{project.description}</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {project.tech.map((tech) => (
+                <Tag key={tech.label} variant={tech.core ? "accent" : "outline"}>
+                  {tech.label}
+                </Tag>
               ))}
             </ul>
             {project.image && (
-              <div className="relative mt-6 aspect-video w-full overflow-hidden rounded border border-forest-800">
-                <Image src={project.image} alt="" fill className="object-cover" />
+              <div className="washed mt-5 aspect-video w-full overflow-hidden rounded-lg">
+                <img src={project.image} alt="" className="h-full w-full object-cover" />
               </div>
             )}
           </li>

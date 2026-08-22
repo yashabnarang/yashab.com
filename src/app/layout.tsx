@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Caprasimo, Figtree } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const heading = Caprasimo({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-heading",
+});
+
+const body = Figtree({
+  subsets: ["latin"],
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
   title: "Yashab Narang",
   description:
-    "Yashab Narang is a systems integrations engineer who builds reliable, scalable software for data migration and full-stack applications.",
+    "Yashab Narang is a full stack software engineer who builds reliable, scalable software for data migration and full-stack applications.",
   metadataBase: new URL("https://yashab.com"),
-  themeColor: "#071510",
+  themeColor: "#f5ead8",
   openGraph: {
     title: "Yashab Narang",
-    description:
-      "Systems Integrations Engineer building reliable, scalable software systems.",
+    description: "Full Stack Software Engineer building reliable, scalable software systems.",
     url: "https://yashab.com",
     siteName: "Yashab Narang",
     locale: "en_US",
@@ -26,14 +31,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${inter.variable} min-h-screen bg-forest-950 font-sans leading-relaxed text-green-300/90 antialiased selection:bg-green-500 selection:text-forest-950`}
-      >
+    <html lang="en">
+      <body className={`${heading.variable} ${body.variable} min-h-screen font-body antialiased`}>
         {children}
       </body>
     </html>
