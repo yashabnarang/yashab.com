@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Caprasimo, Figtree } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const heading = Caprasimo({
@@ -41,6 +42,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${heading.variable} ${body.variable} min-h-screen font-body antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
