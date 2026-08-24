@@ -18,7 +18,7 @@ export const projects: Project[] = [
       "Discord bot that plays randomly selected sounds in voice channels using FFMPEG, with Pickle persistence and Asyncio/Numpy.",
     href: "https://github.com/yashabnarang/Bonk-Bot",
     date: "Apr 2022",
-    tech: [{ label: "Python", core: true }, { label: "Discord" }, { label: "FFMPEG" }, { label: "Asyncio" }],
+    tech: [{ label: "Python", core: true }, { label: "FFMPEG" }, { label: "Asyncio" }],
     image: "/images/bonkbot.png",
     featured: true,
   },

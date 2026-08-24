@@ -24,9 +24,6 @@ export const experience: ExperienceEntry[] = [
     ],
     tech: [
       { label: "C#", core: true },
-      { label: "Azure DevOps" },
-      { label: "Data Migration" },
-      { label: "Evidence.com" },
     ],
   },
   {
