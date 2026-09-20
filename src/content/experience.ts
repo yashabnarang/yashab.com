@@ -18,10 +18,10 @@ export const experience: ExperienceEntry[] = [
     range: "Nov 2024 \u2014 Present",
     bullets: [
       "Develop and maintain data migration helper packages used to migrate digital evidence from legacy systems and third-party vendors into Axon's Evidence.com platform.",
+      "The migration tooling I build regularly moves petabytes of digital evidence per customer migration.",
       "Build and enhance data integration and transformation logic for accurate, complete evidence ingestion during customer migrations.",
       "Partner with Data Solutions Engineers to execute migrations, validate results, and prevent data loss or corruption.",
       "Participate in peer code reviews and release workflows using Azure DevOps.",
-      "Channel packages regularly move petabytes of digital evidence per customer migration.",
     ],
     tech: [
       { label: "C#", core: true },

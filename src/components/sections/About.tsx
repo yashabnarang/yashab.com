@@ -1,7 +1,6 @@
 import { DogEasterEgg } from "@/components/easter-egg/DogEasterEgg";
 import { profile } from "@/content/profile";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { Tag } from "@/components/ui/Tag";
 
 export function About() {
   return (
@@ -27,14 +26,6 @@ export function About() {
           </p>
         ))}
       </div>
-
-      <ul className="mt-5.5 flex flex-wrap gap-2">
-        {profile.skills.map((skill) => (
-          <Tag key={skill.label} variant={skill.core ? "accent" : "outline"}>
-            {skill.label}
-          </Tag>
-        ))}
-      </ul>
     </section>
   );
 }
