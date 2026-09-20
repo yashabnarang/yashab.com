@@ -21,6 +21,7 @@ export const experience: ExperienceEntry[] = [
       "Build and enhance data integration and transformation logic for accurate, complete evidence ingestion during customer migrations.",
       "Partner with Data Solutions Engineers to execute migrations, validate results, and prevent data loss or corruption.",
       "Participate in peer code reviews and release workflows using Azure DevOps.",
+      "Channel packages regularly move petabytes of digital evidence per customer migration.",
     ],
     tech: [
       { label: "C#", core: true },
