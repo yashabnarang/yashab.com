@@ -12,7 +12,7 @@ export type ExperienceEntry = {
 export const experience: ExperienceEntry[] = [
   {
     id: "axon",
-    title: "Systems Integrations Engineer II",
+    title: "Software Engineer",
     company: "Axon Enterprise",
     location: "Remote",
     range: "Nov 2024 \u2014 Present",
@@ -29,7 +29,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     id: "yardi-sde",
-    title: "Software Development Engineer",
+    title: "Software Engineer",
     company: "Yardi Systems",
     location: "Oxnard, CA",
     range: "Jun 2022 \u2014 Nov 2024",

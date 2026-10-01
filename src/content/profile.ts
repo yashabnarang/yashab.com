@@ -33,7 +33,7 @@ export const profile = {
     },
     {
       parts: [
-        { text: "I'm currently a Systems Integrations Engineer II at " },
+        { text: "I'm currently a Software Engineer at " },
         { text: "Axon", bold: true },
         {
           text: ", where I develop migration tooling that moves digital evidence from legacy systems and third-party vendors into Axon's Evidence.com platform. The work is backend-heavy in ",
